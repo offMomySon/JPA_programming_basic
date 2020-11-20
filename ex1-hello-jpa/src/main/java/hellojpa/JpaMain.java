@@ -21,6 +21,41 @@ public class JpaMain {
 //SQL 은 데이터베이스 테이블을 대상으로 쿼리
 
         try {
+//#6 기본키 맵핑
+// 직접할당은 @id '만' 를 이용하면 된다.
+// DB 에 위임하기 위해서는 @GeneratedValue 설정하면 된다.
+// Identity - DB 에게 id 설정 위임
+// SEQUENCE - DB 의 sequence object 를 가져와서 값을 셋팅함
+//
+// @SequenceGenerator 의 allocationSize 를 50 으로 셋팅하면,
+// 미리 DB 의 sequence object 에서 50 을 증가시키고 web app 의 메모리에서 해당 크기만큼 미리할당하여
+// DB 에게 다음 key 값을 요청하지 않아도, Entity 의 key 할당이 가능하다.
+//
+            Member mem1 = new Member();
+            mem1.setUsername("A");
+            Member mem2 = new Member();
+            mem2.setUsername("B");
+            Member mem3 = new Member();
+            mem3.setUsername("C");
+
+            System.out.println("==========");
+
+            em.persist(mem1);
+            em.persist(mem2);
+            em.persist(mem3);
+
+            System.out.println("mem1.getId() = " + mem1.getId());
+            System.out.println("mem2.getId() = " + mem2.getId());
+            System.out.println("mem3.getId() = " + mem3.getId());
+
+            System.out.println("==========");
+//
+//
+//            Member member = new Member();
+//            member.setId("ID_A");
+//            member.setUsername("C");
+//
+//            em.persist(member);
 //영속성 컨택스트의 이점
 // 1차 캐시
 // 동일성 보장 - repeatable read
@@ -38,12 +73,12 @@ public class JpaMain {
 // 1. em.flush - 직접호출
 // 2. 트랜잭션 커밋 - 자동호출
 // 3. JPQL 쿼리 실행 - 플러시 자동 호출
-            Member member = new Member(200L, "member200");
-            em.persist(member);
-
-            em.flush();
-
-            System.out.println("===========");
+//            Member member = new Member(200L, "member200");
+//            em.persist(member);
+//
+//            em.flush();
+//
+//            System.out.println("===========");
 
 
 //#4 영속과 비영속에 대해
