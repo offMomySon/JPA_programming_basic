@@ -26,7 +26,7 @@ public class Member {
     // 2.무슨 키로 Join 할 것인지
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "TEAM_ID")
-    private Team team;
+    private Team  team;
 
     public Team getTeam() {
         return team;
