@@ -28,7 +28,6 @@ public class JpaMain {
             
             Member findMember = order.getMember();
 
-
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
