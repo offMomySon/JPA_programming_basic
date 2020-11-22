@@ -12,10 +12,8 @@ public class Team {
     private Long id;
     private String name;
 
-    //mappedBy - 무엇과 연결되어있는지 나타내는 기능
-    //일대다 매핑에서 Member 변수의 team 과 연결되어있다는 것을 나타냄
-    //나는 team 으로 매핑이 되어있다.
-    @OneToMany(mappedBy = "team")
+    @OneToMany
+    @JoinColumn(name="TEAM_ID")
     private List<Member> members = new ArrayList();
 
     public List<Member> getMembers() {

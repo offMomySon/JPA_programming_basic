@@ -19,22 +19,9 @@ public class Member {
     @Column(name = "USERNAME")
     private String username;
 
-//    @Column(name = "TEAM_ID")
-//    private Long teamId;
-
-    // 1.관계가 무엇인지
-    // 2.무슨 키로 Join 할 것인지
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "TEAM_ID")
-    private Team  team;
-
-    public Team getTeam() {
-        return team;
-    }
-
-    public void setTeam(Team team) {
-        this.team = team;
-    }
+    @ManyToOne
+    @JoinColumn(name="TEAM_ID" , insertable = false, updatable = false)
+    private Team team;
 
     public Long getId() {
         return id;
