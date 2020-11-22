@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0e0df6bc-78b3-432f-8422-deaa625d764e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hellojpa/JpaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hellojpa/JpaMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hellojpa/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hellojpa/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hellojpa/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hellojpa/Team.java" afterDir="false" />
-    </list>
+    <list default="true" id="0e0df6bc-78b3-432f-8422-deaa625d764e" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -127,11 +122,11 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="1269" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="3189" />
     <option name="y" value="-12" />
-    <option name="width" value="1302" />
-    <option name="height" value="1563" />
+    <option name="width" value="977" />
+    <option name="height" value="1218" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -251,28 +246,27 @@
       <workItem from="1605898118937" duration="1881000" />
       <workItem from="1605945933417" duration="2466000" />
       <workItem from="1605954783379" duration="4095000" />
-      <workItem from="1605967958856" duration="5776000" />
+      <workItem from="1605967958856" duration="5783000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39149000" />
+    <option name="totallyTimeSpent" value="39156000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="846" y="-8" width="868" height="1042" extended-state="1" />
-    <editor active="true" />
+    <frame x="846" y="-8" width="868" height="1042" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49420848" visible="true" weight="0.23886138" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4950495" visible="true" weight="0.23886138" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
-      <window_info id="Persistence" order="3" sideWeight="0.5057915" side_tool="true" visible="true" weight="0.23886138" />
+      <window_info id="Persistence" order="3" sideWeight="0.5049505" side_tool="true" visible="true" weight="0.23886138" />
       <window_info id="Image Layers" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="UI Designer" order="6" />
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32929516" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.43014303" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.43014303" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />

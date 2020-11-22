@@ -2,6 +2,7 @@ package jpabook.jpashop;
 
 import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.domain.Order;
+import jpabook.jpashop.domain.OrderItem;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -18,15 +19,9 @@ public class JpaMain {
         tx.begin();
 
         try {
-            Order order = em.find(Order.class, 1L);
-            Long memberId = order.getMemberId();
-
-            //Member member = em.find(Member.class, memberId);
-            // 위는 객체를 관계형 DB 에 맞춘 설계이다.
-            // 객체지향 스럽지 못하다.
-            // 객체 그래프 탐색이 불가능함.
-            
-            Member findMember = order.getMember();
+            Order order = new Order();
+            order.addOrderItem(new OrderItem());
+            em.persist(order);
 
             tx.commit();
         } catch (Exception e) {
