@@ -11,7 +11,7 @@ import java.util.List;
 @SequenceGenerator(name = "member_seq_generator",
         sequenceName = "member_seq",
         initialValue = 1, allocationSize = 50)
-public class Member {
+public class Member extends BaseEntity{
 
     @Id
     @GeneratedValue
