@@ -1,11 +1,6 @@
 package hellojpa;
 
-import org.hibernate.annotations.Fetch;
-
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 @Entity
 @SequenceGenerator(name = "member_seq_generator",
@@ -25,12 +20,13 @@ public class Member extends BaseEntity{
     @JoinColumn(name="TEAM_ID" , insertable = false, updatable = false)
     private Team team;
 
-    @OneToOne
-    @JoinColumn(name = "LOCKER_ID")
-    private  Locker locker;
+    public Team getTeam() {
+        return team;
+    }
 
-    @OneToMany(mappedBy = "member")
-    private List<MemberProduct> memberProducts = new ArrayList();
+    public void setTeam(Team team) {
+        this.team = team;
+    }
 
     public Long getId() {
         return id;
