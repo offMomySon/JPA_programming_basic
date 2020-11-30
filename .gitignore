@@ -12,7 +12,7 @@
 **/dictionaries
 **/shelf
 **/workspace.xml
-
+workspace.xml
 
 # Generated files
 .idea/**/contentModel.xml
