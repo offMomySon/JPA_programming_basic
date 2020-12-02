@@ -5,58 +5,29 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.util.List;
-import java.util.Set;
 
 public class JpaMain {
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
-
         tx.begin();
         try {
+//            List<Member> result = em.createQuery("select m From Member m where m.username like '%kim%'", Member.class).getResultList();
             Member member = new Member();
             member.setUsername("member1");
-            member.setHomeAddress(new Address("homeCity1", "street", "10000"));
-
-            member.getFavoriteFoods().add("치킨");
-            member.getFavoriteFoods().add("피자");
-            member.getFavoriteFoods().add("족발");
-
-            member.getAddressHistory().add(new AddressEntity("old1", "street", "10000"));
-            member.getAddressHistory().add(new AddressEntity("old2", "street", "10000"));
-
             em.persist(member);
 
-            em.flush();
-            em.clear();
+            //flush -> commit, query 수행될때 동작함.
 
-            System.out.println("===================START=============");
-            // 지연로딩.
-            Member findMember = em.find(Member.class, member.getId());
+            
 
-//            List<AddressEntity> addressesHistoty = findMember.getAddressHistory();
-//            for (Address address : addressesHistoty) {
-//                System.out.println("address.getCity() = " + address.getCity());
-//            }
-//
-//            Set<String> favoriteFoods = findMember.getFavoriteFoods();
-//            for (String favoriteFood : favoriteFoods) {
-//                System.out.println("favoriteFood = " + favoriteFood);
-//            }
+            String sql = "SELECT MEMBER_ID, city, street, zipcode FROM MEMBER ";
+            List<Member> resultList = em.createNativeQuery(sql, Member.class).getResultList();
 
-//            //homeCity -> newCity
-//            Address a = findMember.getHomeAddress();
-//            member.setHomeAddress(new Address("newCity", a.getStreet(), a.getZipcode()));
-//
-//            //치킨 -> 한식
-//            findMember.getFavoriteFoods().remove("치킨");
-//            findMember.getFavoriteFoods().add("한식");
-
-            // remove 를 할때 list 의 object 를 equals 로 같은 객체를 찾는다.
-//            findMember.getAddressHistory().remove(new AddressEntity("old1", "street", "10000"));
-//            findMember.getAddressHistory().add(new AddressEntity("newCity1", a.getStreet(), a.getZipcode()));
-
+            for (Member member1 : resultList) {
+                System.out.println("member1 = " + member1);
+            }
 
             tx.commit();
         } catch (Exception e) {
