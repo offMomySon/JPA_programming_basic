@@ -20,7 +20,7 @@ public class JpaMain {
 
             //flush -> commit, query 수행될때 동작함.
 
-            
+
 
             String sql = "SELECT MEMBER_ID, city, street, zipcode FROM MEMBER ";
             List<Member> resultList = em.createNativeQuery(sql, Member.class).getResultList();
