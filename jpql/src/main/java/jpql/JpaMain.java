@@ -15,24 +15,32 @@ public class JpaMain {
             member.setAge(10);
             em.persist(member);
 
-//            TypedQuery<Member> query = em.createQuery("select m from Member as m where m.username = :username", Member.class);
-//            query.setParameter("username", "member1");
 
-            Member result = em.createQuery("select m from Member as m where m.username = :username", Member.class)
-                    .setParameter("username", "member1")
-                    .getSingleResult();
+            //JPQL을 통해 가져온 객체들이 영속성 컨텍스트에서 관리되게 된다.
+            // 1.타입을 명시하지 못할 때, 첫번째 방법.
+//            List resultList = em.createQuery("select distinct m.username, m.age from Member m")
+//                    .getResultList();
+//
+//            Object o = resultList.get(0);
+//            Object[] result = (Object[]) o;
+//            System.out.println("username = " + result[0]);
+//            System.out.println("age = " + result[1]);
 
-//            TypedQuery<String> query2 = em.createQuery("select m.username from Member m", String.class);
-//            Query query3 = em.createQuery("select m.username, m.age from Member m");
+            // 2.타입을 명시하지 못할 때, Object[] 로 받는 방법.
+//            List<Object[]> resultList = em.createQuery("select distinct m.username, m.age from Member m")
+//                    .getResultList();
+//
+//            Object[] result = resultList.get(0);
+//            System.out.println("username = " + result[0]);
+//            System.out.println("age = " + result[1]);
 
-//            List<Member> resultList = query1.getResultList();
-//            for (Member member1 : resultList) {
-//                System.out.println("member1 = " + member1);
-//            }
-
-//            Member result = query.getSingleResult();
-//            System.out.println("result = " + result);
-
+            // 3. Entity 가 아닌 DTO 를 통해 데이터를 뽑는 방법.
+            // Entity 가 아니면 new 오퍼레이션으로 만들어야한다.
+            List<MemberDTO> resultList = em.createQuery("select new jpql.MemberDTO(m.username, m.age) from Member  m", MemberDTO.class)
+                    .getResultList();
+            MemberDTO memberDTO = resultList.get(0);
+            System.out.println("memberDTO = " + memberDTO.getUsername());
+            System.out.println("memberDTO = " + memberDTO.getAge());
 
             tx.commit();
         } catch (Exception e) {
