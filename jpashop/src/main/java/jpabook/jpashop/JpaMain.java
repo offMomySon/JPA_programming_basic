@@ -22,6 +22,8 @@ public class JpaMain {
             order.addOrderItem(new OrderItem());
             em.persist(order);
 
+            em.createQuery("select i from Item i where type(i) = Book ")
+                    .getResultList();
 
             tx.commit();
         } catch (Exception e) {
